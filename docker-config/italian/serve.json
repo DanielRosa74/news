@@ -1,28 +1,36 @@
 {
   "directoryListing": false,
   "rewrites": [
-    { "source": "/rss", "destination": "/rss.xml" }
+    {
+      "source": "**/rss",
+      "destination": "/rss.xml"
+    }
   ],
   "redirects": [
     {
-      "source": "/@(.*)$",
-      "destination": "/author/$1"
+      "source": "/@:username",
+      "destination": "/italian/news/author/:username",
+      "type": 302
     },
     {
-      "source": "/tagged/(.*)$",
-      "destination": "/tag/$1"
+      "source": "/tagged/:tagName",
+      "destination": "/italian/news/tag/:tagName",
+      "type": 302
     },
     {
-      "source": "/archive/(.*)$",
-      "destination": "/"
+      "source": "/archive/**",
+      "destination": "/italian/news/",
+      "type": 302
     },
     {
       "source": "/our-sponsors",
-      "destination": "/sponsors"
+      "destination": "/italian/news/sponsors",
+      "type": 302
     },
     {
       "source": "/about-freecodecamp",
-      "destination": "/about"
+      "destination": "/italian/news/about",
+      "type": 302
     }
   ]
 }
